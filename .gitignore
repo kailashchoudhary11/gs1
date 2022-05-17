@@ -1,2 +1,4 @@
 gs1/__pycache__
 db.sqlite3
+.env
+api/__pycache__

@@ -1,4 +1,4 @@
 django
-python
 djangorestframework
 python-dotenv
+requests
