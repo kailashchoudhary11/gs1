@@ -1,5 +1,3 @@
-from time import clock_settime
-
 from rest_framework import serializers
 from .models import Student
 
