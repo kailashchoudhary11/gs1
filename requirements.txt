@@ -1,0 +1,4 @@
+django
+python
+djangorestframework
+python-dotenv
