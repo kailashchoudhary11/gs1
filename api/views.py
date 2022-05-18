@@ -8,8 +8,8 @@ from rest_framework.renderers import JSONRenderer
 
 # Single Model Object 
 
-def student_detail(request):
-    student = Student.objects.get(id=3)
+def student_detail(request, pk):
+    student = Student.objects.get(id=pk)
     serializer = StudentSerializer(student)
     print(serializer.data)
     # print(type(serializer.data))
@@ -23,6 +23,7 @@ def student_detail(request):
 def student_list(request):
     students = Student.objects.all()
     serializers = StudentSerializer(students, many=True)
-    for serializer in serializers:
-        print(serializer.data)
-    return HttpResponse("Hello, World")
+    json_data = JSONRenderer().render(serializers.data)
+    print(json_data)
+    # return HttpResponse(json_data, content_type="application/json")
+    return JsonResponse(serializers.data, safe=False)
