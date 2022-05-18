@@ -19,3 +19,10 @@ def student_detail(request):
     print(json_data)
     # return JsonResponse(serializer.data)
     return HttpResponse(json_data, content_type="application/json")
+
+def student_list(request):
+    students = Student.objects.all()
+    serializers = StudentSerializer(students, many=True)
+    for serializer in serializers:
+        print(serializer.data)
+    return HttpResponse("Hello, World")
